@@ -8,31 +8,36 @@ import { DetailedProductComponent } from './product/detailed-product/detailed-pr
 
 export const appRoutes: Routes = [
     {
+    //     path: 'Dashboard',
+    //     component: HomeComponent
+    // },
+    // {
+    //     path: 'Dashboard/productList',
+    //     component: ProductListComponent,
+    //     //outlet: 'child1'
+    // },
+    // {
+    //     path: 'Dashboard/detailedList',
+    //     component: DetailedProductComponent,
+    //     //outlet: 'child2'
+    // }
         path: 'Dashboard',
         component: HomeComponent
-    },
-    {
-        path: 'Dashboard/productList',
-        component: ProductListComponent,
-        //outlet: 'child1'
-    },
-    {
-        path: 'Dashboard/detailedList',
-        component: DetailedProductComponent,
-        //outlet: 'child2'
-    }
-        // path: 'Dashboard',
-        // component: HomeComponent,
         // children:[
         //     {
         //         path: 'productList',
         //         component: ProductListComponent,
         //         outlet: 'child1'
-        //     },
-        //     {
-        //         path: 'detailedList',
-        //         component: DetailedProductComponent,
-        //         outlet: 'child2'
-        //     }
-        // ]
+        //     }// ,
+            // {
+            //     path: 'detailedList',
+            //     component: DetailedProductComponent,
+            //     outlet: 'child2'
+            // }
+        //]
+    },
+    {
+        path: 'productList',
+        component: ProductListComponent
+    }
 ];

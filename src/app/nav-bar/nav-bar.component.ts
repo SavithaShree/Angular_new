@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { List } from '../product/shared/product.service';
+import { List } from '../product/sharedservices/product.service';
+//import { SharedModule } from '../shared/shared.module'
 
 @Component({
   selector: 'nav-bar',

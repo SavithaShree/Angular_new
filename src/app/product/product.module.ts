@@ -11,6 +11,7 @@ import { CartComponent } from '../cart/cart/cart.component';
     CommonModule,
     CartModule
   ],
-  providers: []
+  providers: [],
+  exports: [ProductListComponent]
 })
 export class ProductModule { }

@@ -1,4 +1,4 @@
-[
+ [
     {
         "Category": "Men",
         "Product": "Watches",
@@ -14,5 +14,181 @@
         "Image": "https://images-na.ssl-images-amazon.com/images/I/91w91sla6TL._UX500_.jpg",
         "Price": "3450/-",
         "Description": " Imported; Synthetic sole ;Thintech, adituff, thintech cleat, traxion, adiwear Lightweight mesh and synthetic upper for enhanced breathability and comfort "
+    },
+    {
+        "Category": "Men",
+        "Product": "Shirts",
+        "Brand": "La Kanie",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/51RO7kiSG6L._UX522_.jpg",
+        "Price": "700/-",
+        "Description": "Normal Wash, Do Not Bleach or Use Hard Detergent;Fit Type: Slim Fit; Full Sleeves Buttoned Shirt "
+    },
+    {
+        "Category": "Men",
+        "Product": "Sunglasses",
+        "Brand": "Fastrack",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/61aeNPe%2BS6L._UX679_.jpg",
+        "Price": "1020/-",
+        "Description": "Size Map: Small ; Lens Material: Polycarbonate ; Front Material Detail: Plastic ; 17 mm Bridge Width "
+    },
+    {
+        "Category": "Men",
+        "Product": "Wallet",
+        "Brand": "Titan",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/51B2W1GAFGL.jpg",
+        "Price": "1088/-",
+        "Description": "Stylish and Elegant Design; 100% Original and 7 days Return; It is made of leather and is durable"
+    },
+    {
+        "Category": "Men",
+        "Product": "Belt",
+        "Brand": "Wild Dragon",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/71Sua5PLPJL._UX385_.jpg",
+        "Price": "1499/-",
+        "Description": "100% PURE Genuine leather belt. "
+    },
+    {
+        "Category": "Men",
+        "Product": "Neck Tie",
+        "Brand": "Luxeis",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/81vsqaXfP3L._UL1500_.jpg",
+        "Price": "979/-",
+        "Description": " Softest Premium Tie Material; 7.5cm width at widest point; Matching Cufflink and Pocket Square; Suitable For Every Occasion "
+    },
+    {
+        "Category": "Men",
+        "Product": "Cap",
+        "Brand": "Black Buck",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/61tPY2%2BcrwL._UL1001_.jpg",
+        "Price": "699/-",
+        "Description": " Material: Cotton; Type: Hiphop Cap; Occasion type: casual, party, sports; Casual cap great for all sports & any Occasion "
+    },
+    {
+        "Category": "Women",
+        "Product": "Watches",
+        "Brand": "Daniel Klein",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/81gph1HUcFL._UL1500_.jpg",
+        "Price": "2256/-",
+        "Description": " Dial Color: Blue, Case Shape: Round; Band Color: Blue, Band Material: Stainless Steel; Watch Movement Type: Quartz, Watch Display Type: Analog; Water Resistance Depth: 30 meters "
+    },
+    {
+        "Category": "Women",
+        "Product": "Kurta",
+        "Brand": "BIBA",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/91lLSRZTxnL._UL1500_.jpg",
+        "Price": "1559/-",
+        "Description": "Synthetic with three quarter sleeve, Anarkali, Ankle length, Hand wash "
+    },
+    {
+        "Category": "Women",
+        "Product": "Handbag",
+        "Brand": "Fostelo",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/61r-%2BQqoLzL._UL1500_.jpg",
+        "Price": "2399/-",
+        "Description": " Synthetic material maroon colored handbag; 23 centimeters height x 34 centimeters length x 10 centimeters width; Zip closure with double handle. The strap size is 58 cm; 2 compartments and 2 pockets "
+    },
+    {
+        "Category": "Women",
+        "Product": "Sneakers",
+        "Brand": "PUMA",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/81-3DtUVK1L._UL1500_.jpg",
+        "Price": "2729/-",
+        "Description": "Closure: Slip On; Heel Height: 0.5 inches; Material Type: Synthetic; Lifestyle: Casual; Closure Type: Slip On; Heel Type: Flats; Heel Height: 0.5 inche"
+    },
+    {
+        "Category": "Women",
+        "Product": "Sandals",
+        "Brand": "Crocs",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/71KozCgtQVL._UL1500_.jpg",
+        "Price": "1997/-",
+        "Description": " Sole: Croslite; Closure: Slip On; Material Type: Synthetic; Lifestyle: Casual; Closure Type: Slip On "
+    },
+    {
+        "Category": "Women",
+        "Product": "Pendants",
+        "Brand": "Surat Diamonds",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/41h8AxoEK%2BL.jpg",
+        "Price": "1755/-",
+        "Description": " This pendant is made from .925 sterling silver. This pendant has been adorned with real diamonds. Diamond carat 0.02 with good stone cut "
+    },
+    {
+        "Category": "Women",
+        "Product": "Jewellery",
+        "Brand": "Terracotta",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/71KTXKrOHUL._UL1500_.jpg",
+        "Price": "1250/-",
+        "Description": "Hand Crafted, Adjustable"
+    },
+    {
+        "Category": "Women",
+        "Product": "Sunglasses",
+        "Brand": "Fastrack",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/71Cn3AjGqPL._UL1500_.jpg",
+        "Price": "1695/-",
+        "Description": " Frame Material: Plastic; Lens Material: Composite; Ideal for: Women; Polarized: False "
+    },
+    {
+        "Category": "Kids",
+        "Product": "",
+        "Brand": "",
+        "Image": "",
+        "Price": "",
+        "Description": ""
+    },
+    {
+        "Category": "Kids",
+        "Product": "",
+        "Brand": "",
+        "Image": "",
+        "Price": "",
+        "Description": ""
+    },
+    {
+        "Category": "Kids",
+        "Product": "",
+        "Brand": "",
+        "Image": "",
+        "Price": "",
+        "Description": ""
+    },
+    {
+        "Category": "Kids",
+        "Product": "",
+        "Brand": "",
+        "Image": "",
+        "Price": "",
+        "Description": ""
+    },
+    {
+        "Category": "Kids",
+        "Product": "",
+        "Brand": "",
+        "Image": "",
+        "Price": "",
+        "Description": ""
+    },
+    {
+        "Category": "Kids",
+        "Product": "",
+        "Brand": "",
+        "Image": "",
+        "Price": "",
+        "Description": ""
+    },
+    {
+        "Category": "Kids",
+        "Product": "",
+        "Brand": "",
+        "Image": "",
+        "Price": "",
+        "Description": ""
+    },
+    {
+        "Category": "Kids",
+        "Product": "",
+        "Brand": "",
+        "Image": "",
+        "Price": "",
+        "Description": ""
     }
 ]
