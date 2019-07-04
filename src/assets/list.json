@@ -1,0 +1,18 @@
+[
+    {
+        "Category": "Men",
+        "Product": "Watches",
+        "Brand": "Fossil",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/91KFNCw7rOL._UY445_.jpg",
+        "Price": "6800/-",
+        "Description": "Case size: 44mm; Band size: 22mm; quartz movement with luminous 3-hand analog display; mineral crystal face; imported"
+    },
+    {
+        "Category": "Men",
+        "Product": "Shoes",
+        "Brand": "Adidas",
+        "Image": "https://images-na.ssl-images-amazon.com/images/I/91w91sla6TL._UX500_.jpg",
+        "Price": "3450/-",
+        "Description": " Imported; Synthetic sole ;Thintech, adituff, thintech cleat, traxion, adiwear Lightweight mesh and synthetic upper for enhanced breathability and comfort "
+    }
+]
