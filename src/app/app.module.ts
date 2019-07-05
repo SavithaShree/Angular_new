@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'; 
-import { SharedModule } from './shared/shared.module';
+//import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +25,7 @@ import { appRoutes } from './routerConfig';
     AppRoutingModule,
     ProductModule,
     CartModule,
-    SharedModule,
+    //SharedModule,
     HttpClientModule,
     RouterModule,
     RouterModule.forRoot(appRoutes)

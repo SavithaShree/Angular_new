@@ -1,1 +1,11 @@
 <p>cart works!</p>
+<ul>
+    <li *ngFor="let carts of cartArray">
+        <p>{{carts.Product}}</p>
+        <p>{{carts.Price}}</p>
+        <div *ngIf="carts.Product">
+            <input type="button" value="Remove from cart" (click)="removeFromCart(carts.Product)">
+            </div>
+    </li>
+</ul>
+

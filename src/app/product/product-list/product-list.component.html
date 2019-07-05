@@ -1,13 +1,48 @@
+
+<style >
+ 
+    input[type=button] {
+      background-color: rgb(45, 30, 70);
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+
+.fade
+{
+        opacity:1;
+        border-radius: 10%
+}
+.fade:hover
+{
+        opacity:0.5;
+}
+
+
+    </style>
+    <body >
+        
+    
 <p>product-list works!</p>
+<input type="button" class="fade" value="Men" (click)="sort($event)">
+<input type="button"  class="fade" value="Women" (click)="sort($event)">
+<input type="button" class="fade" value="Kids" (click)="sort($event)">
+
+
 
 <ul>
-    <li *ngFor="let data of listdata">
+    <li *ngFor="let data of sortArray">
         <p>{{data.Product}}</p>
         <p>{{data.Brand}}</p>
         <p><img style="height: 250px; width: 250px;" src={{data.Image}} alt=""></p>
         <p>{{data.Price}}</p>
         <p>{{data.Description}}</p>
+        <input type="button" class="fade" (click)="clickAddToCart(data.Product, data.Price)" value="Add to cart">
     </li>
 </ul>
-<app-cart></app-cart>
-
+<app-cart [product]="product"></app-cart>
+</body>
