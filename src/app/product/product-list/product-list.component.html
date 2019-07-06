@@ -38,11 +38,12 @@
     <li *ngFor="let data of sortArray">
         <p>{{data.Product}}</p>
         <p>{{data.Brand}}</p>
+        <!-- <p>{{product.Product}}</p> -->
         <p><img style="height: 250px; width: 250px;" src={{data.Image}} alt=""></p>
         <p>{{data.Price}}</p>
         <p>{{data.Description}}</p>
         <input type="button" class="fade" (click)="clickAddToCart(data.Product, data.Price)" value="Add to cart">
     </li>
 </ul>
-<app-cart [product]="product"></app-cart>
+<app-cart></app-cart>
 </body>

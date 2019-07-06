@@ -4,6 +4,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { DetailedProductComponent } from './detailed-product/detailed-product.component';
 import { CartModule } from '../cart/cart.module';
 import { CartComponent } from '../cart/cart/cart.component';
+import { CartService } from '../cart/sharedservices/cart.service';
  
 @NgModule({
   declarations: [ProductListComponent, DetailedProductComponent, CartComponent],
@@ -14,4 +15,6 @@ import { CartComponent } from '../cart/cart/cart.component';
   providers: [],
   exports: [ProductListComponent]
 })
-export class ProductModule { }
+export class ProductModule { 
+  
+}

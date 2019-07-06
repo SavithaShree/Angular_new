@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { List } from '../sharedservices/product.service';
+import { CartService } from 'src/app/cart/sharedservices/cart.service';
 @Component({
   selector: 'prod-list',
   templateUrl: './product-list.component.html',
@@ -10,7 +11,8 @@ export class ProductListComponent implements OnInit {
   //private listdata: any= []
   sortArray: any=[];
   product: object;
-  constructor(private list: List) { }
+  constructor(private list: List,
+    private cartService: CartService) { }
 
    ngOnInit() {
   //   this.list.getJSON().subscribe(data => {
@@ -22,14 +24,7 @@ export class ProductListComponent implements OnInit {
     
       this.sortArray=this.list.sort(val);
   }
-  clickAddToCart(val1, val2) {
-    var sample={
-      Product: val1,
-      Price: val2
-    };
-    console.log("hi");
-    this.product = sample;
-  }
+  
 
  }
 
