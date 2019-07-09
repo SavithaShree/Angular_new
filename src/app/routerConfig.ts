@@ -39,5 +39,9 @@ export const appRoutes: Routes = [
     {
         path: 'Dashboard/productList',
         component: ProductListComponent
+    },
+    {
+        path: 'Dashboard/detailedList',
+        component: DetailedProductComponent
     }
 ];

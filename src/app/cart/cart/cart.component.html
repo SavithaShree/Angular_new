@@ -2,9 +2,11 @@
 <ul>
 
     <p>hello1</p>
-
+    <!-- <p>{{cartArray}}</p> -->
+    <!-- <p>{{cartArray.product}}</p> -->
     <li *ngFor="let carts of cartArray">
-        <p>hello2</p>
+    
+  <div *ngIf="carts.Product">
         <!-- <p>{{product.carts[0].product}}</p>
         <p>{{product.carts[1].product}}</p>
         <p>{{product.Price}}</p>
@@ -12,11 +14,14 @@
         <p>{{cartArray[1]}}</p> -->
         
         <p>{{carts.Product}}</p>
-        <p>hello3</p>
         <p>{{carts.Price}}</p>
-        <div *ngIf="carts.Product">
-            <input type="button" value="Remove from cart" (click)="removeFromCart(carts.Product)">
-            </div>
+        <!-- <div *ngIf="carts.Product"> -->
+        <input type="button" value="Remove from cart" (click)="removeFromCart(carts.Product)">
+        <!-- <div *ngIf="carts.Product">
+            {{total(cartArray) ? chartMethod() : ""}}
+        </div> -->
+            <!-- </div> -->
+        </div>
     </li>
 </ul>
 
