@@ -1,0 +1,14 @@
+body{
+    padding: 30px;
+    color: #030202;
+    border: 1px solid rgba(0,0,0,.05);
+    align-items: flex-end;
+    width: 250px;
+    height: 450px;
+    overflow: scroll;
+    position: relative;
+    left:75px;
+    top: 50px;  
+  }
+
+ 

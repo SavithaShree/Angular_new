@@ -21,7 +21,7 @@ export const appRoutes: Routes = [
     //     component: DetailedProductComponent,
     //     //outlet: 'child2'
     // }
-        path: 'Dashboard',
+        path: '',
         component: HomeComponent
         // children:[
         //     {
@@ -37,11 +37,11 @@ export const appRoutes: Routes = [
         //]
     },
     {
-        path: 'Dashboard/productList',
+        path: 'productList',
         component: ProductListComponent
     },
     {
-        path: 'Dashboard/detailedList',
+        path: 'detailedList',
         component: DetailedProductComponent
     }
 ];

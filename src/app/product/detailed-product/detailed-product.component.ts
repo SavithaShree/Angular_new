@@ -11,34 +11,35 @@ import { Router } from '@angular/router';
 })
 export class DetailedProductComponent implements OnInit {
   // sortArray: any=[];
-  detailedArray: any=[];
+  detailedArray: any = [];
   sample: object;
   private subscribtion: Subscription;
 
   constructor(private list: List,
     private cartService: CartService,
-    private router: Router) { } 
+    private router: Router) { }
 
   ngOnInit() {
-    this.subscribtion=this.list.detailed.subscribe(val =>{
-      this.detailedArray=val})
-      console.log(this.detailedArray);
+    this.subscribtion = this.list.detailed.subscribe(val => {
+      this.detailedArray = val
+    })
+    console.log(this.detailedArray);
 
   }
-  clickAddToCart(val1, val2){
-    this.sample={
-          Product: val1,
-          Price: val2
+  clickAddToCart(val1, val2) {
+    this.sample = {
+      Product: val1,
+      Price: val2
     }
-    
-        this.cartService.addToCart(this.sample);
-      }
-  backPage(){
-    this.router.navigateByUrl('Dashboard/productList');
+
+    this.cartService.addToCart(this.sample);
   }
-// newPage(val){
-//   this.sortArray=this.list.newPage(val);
-//   console.log(this.sortArray);
-// }
+  backPage() {
+    this.router.navigateByUrl('/productList');
+  }
+  // newPage(val){
+  //   this.sortArray=this.list.newPage(val);
+  //   console.log(this.sortArray);
+  // }
 
 }

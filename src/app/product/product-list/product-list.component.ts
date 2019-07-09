@@ -13,33 +13,37 @@ import { Router } from '@angular/router';
 export class ProductListComponent implements OnInit {
 
   //private listdata: any= []
-  sortArray: any=[];
+  sortArray: any = [];
+
   //sample: Object;
-  sample:any=[];
+  sample: any = [];
   // product: object;
   constructor(private list: List,
     private cartService: CartService,
     private router: Router) { }
 
-   ngOnInit() {
-  //   this.list.getJSON().subscribe(data => {
-  //     this.listdata=data;
-  //     console.log(this.listdata);
-  // });
+  ngOnInit() {
+    //   this.list.getJSON().subscribe(data => {
+    //     this.listdata=data;
+    //     console.log(this.listdata);
+    // });
   }
-  sort(val){  
-    
-      this.sortArray=this.list.sort(val);
+  sort(val) {
+
+    this.sortArray = this.list.sort(val);
   }
 
-  clickAddToCart(val1, val2){
-    this.sample={
-          Product: val1,
-          Price: val2
-    }
+  clickAddToCart(data) {
     
-        this.cartService.addToCart(this.sample);
-      }
+    this.sample = {
+      Product: data.Product,
+      Price: data.Price
+      // isFound: data.isFound
+    }
+     data.isFound = true;
+    this.cartService.addToCart(this.sample);
+
+  }
   // clickAddToCart(val1, val2){
   //   this.sample={
   //     Product: val1,
@@ -49,12 +53,12 @@ export class ProductListComponent implements OnInit {
   //   console.log(this.sample);
   //   this.cartService.addToCart(this.sample);
   // }
-  
-  newPage(val){
-    this.router.navigateByUrl('Dashboard/detailedList');
+
+  newPage(val) {
+    this.router.navigateByUrl('detailedList');
     this.list.detailedPage(val);
 
   }
 
- }
+}
 
