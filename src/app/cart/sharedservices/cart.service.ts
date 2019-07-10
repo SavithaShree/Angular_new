@@ -30,6 +30,8 @@ export class CartService {
 
 
   addToCart(val) {
+    
+    //push to service object-that objects that come in an array and display it in cartcomp.ts by subscribing the array.
     // this.serviceArray={
     //   Product: val.Product,
     //   Price: val.Price,
