@@ -23,7 +23,7 @@ export class DetailedProductComponent implements OnInit {
     this.subscribtion = this.list.detailed.subscribe(val => {
       this.detailedArray = val
     })
-    console.log(this.detailedArray);
+    console.log("paapom",this.detailedArray);
 
   }
   clickAddToCart(val1, val2) {

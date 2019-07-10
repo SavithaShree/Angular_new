@@ -1,29 +1,13 @@
 <body>
-    <p>cart works!</p>
     <ul>
-
-        <p>hello1</p>
-        <!-- <p>{{cartArray}}</p> -->
-        <!-- <p>{{cartArray.product}}</p> -->
         <li *ngFor="let carts of cartArray">
-
             <div *ngIf="carts.Product">
-                <!-- <p>{{product.carts[0].product}}</p>
-        <p>{{product.carts[1].product}}</p>
-        <p>{{product.Price}}</p>
-        <p>{{cartArray[0]}}</p>
-        <p>{{cartArray[1]}}</p> -->
-
                 <p>{{carts.Product}}</p>
                 <p>{{carts.Price}}</p>
-                <!-- <div *ngIf="carts.Product"> -->
-                <input type="button" class="fade" value="Remove from cart" (click)="removeFromCart(carts.Product)">
-                <!-- <div *ngIf="carts.Product">
-            {{total(cartArray) ? chartMethod() : ""}}
-        </div> -->
-                <!-- </div> -->
+                <p>TotalSum{{carts.Total}}</p>
+                <input type="button" class="fade" value="Remove from cart" (click)="removeFromCart(carts)">
             </div>
         </li>
     </ul>
-    <p>Total: {{sum}}</p>
+    <h2>Total: {{sum}}</h2>
 </body>

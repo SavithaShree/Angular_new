@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Subject } from 'rxjs';
+import { Subscription } from 'rxjs';
 //import { List } from 'src/app/product/sharedservices/product.service'
 
 @Injectable({
@@ -7,31 +8,40 @@ import { BehaviorSubject } from 'rxjs';
 })
 
 export class CartService {
-  receiver = new BehaviorSubject<any>('');
+  receiver = new Subject<any>();
   cast = this.receiver.asObservable();
-  product: object;
-  array: any = [];
-  sum: number = 0;
+  //serviceArray: object;
+  //servicecartArray: any = [];
+  //sum: number = 0;
+  // private subscription: Subscription;
 
-  // constructor(private list: List){
+  // this.subscription = this.cartService.cast.subscribe(array => {
+  //   console.log(this.cartArray.length);
+  //   this.cartArray.push(array);
+  //   console.log(this.cartArray);
+  //   console.log(this.sum);
 
-  // }
+//  alert("initialised");
+  //   this.sum = this.sum + Number(array.Price);
+  //   console.log(this.sum, array.Price)
+
+  // })
 
 
-  // clickAddToCart(val1, val2) {
-  //     var sample={
-  //       Product: val1,
-  //       Price: val2
-  //     };
-  //     console.log("hi");
-  //     this.product = sample;
-  //     console.log(this.product);
-  //     return this.product;
-  //   }
+
   addToCart(val) {
+    // this.serviceArray={
+    //   Product: val.Product,
+    //   Price: val.Price,
+    //   Total: this.sum
+    // }
+    //this.servicecartArray.push(val);
+    //this.sum = this.sum + Number(val.Price);
+    
+
     this.receiver.next(val);
-    alert("hello");
-    console.log(val);
+    alert("service");
+    console.log("service",val);
 
     // this.array.push(val);
     // alert("hey");
