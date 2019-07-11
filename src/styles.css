@@ -1,12 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
 .fade
 {
-        opacity:1;
-        border-radius: 10%
+    opacity:1;
+    border-radius: 10%
 }
 .fade:hover
 {
-        opacity:0.5;
+    opacity:0.5;
 }
 input[type=button] {
     background-color: rgb(45, 30, 70);
@@ -17,11 +16,11 @@ input[type=button] {
     margin: 4px 2px;
     cursor: pointer;
   }
-  body  {
-        background-image: url("https://as1.ftcdn.net/jpg/01/57/32/54/500_F_157325433_f6t0bLglsqSrug4Um75E0jnVVTgS0uOW.jpg");
-        /* opacity: 0; */
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: center;
-      }
+body  
+{
+    background-image: url("https://as1.ftcdn.net/jpg/01/57/32/54/500_F_157325433_f6t0bLglsqSrug4Um75E0jnVVTgS0uOW.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}

@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from '../sharedservices/cart.service';
 import { Subscription } from 'rxjs';
 import { List } from 'src/app/product/sharedservices/product.service'
@@ -8,66 +8,36 @@ import { List } from 'src/app/product/sharedservices/product.service'
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit{
-  cartArray: any = [];
-  sum: number = 0;
+export class CartComponent implements OnInit {
+  private cartArray: any = [];
+  private cartTotal: number = 0;
   private subscription: Subscription;
 
   constructor(private cartService: CartService,
     private list: List) {
-    // this.subscription=this.cartService.cast.subscribe(array=>{
-    //   console.log(this.cartArray.length);
-    //   this.cartArray.push(array);
-    //   console.log(this.cartArray);
-    //   console.log(this.sum);
-
-
-    //     this.sum = this.sum + Number(array.Price);
-    //     console.log(this.sum, array.Price)
-
-    // })
-    // alert("hajkdhuwied");
-
+    //this.subscription = this.checkFunction();
   }
 
-  
+  checkFunction() {
+    this.cartService.cast.subscribe(array => {
+      this.cartArray = array;
+      if (this.cartArray.length === 0) {
+        this.cartTotal = 0;
+      }
+      this.cartTotal = 0;
+      for (let cart of this.cartArray) {
+        this.cartTotal = this.cartTotal + Number(cart.Price)
+      }
+    })
+    return this.cartArray;
+  }
 
   ngOnInit() {
-    this.subscription = this.cartService.cast.subscribe(array => {
-       this.cartArray.push(array);
-             console.log(this.cartArray);
-//       console.log(this.sum);
-
-      this.sum = this.sum + Number(array.Price);
-     console.log(this.sum, array.Price)
-
-     })
-
-
-    // this.subscription=this.cartService.cast.subscribe(array=>{
-    //   console.log(this.cartArray.length);
-    //   this.cartArray.push(array);})
-    //   // alert("hajkdhuwied");
-    //  console.log(this.cartArray);
-    //       alert("final");
-    //       console.log("hiiiii");
-    // console.log(this.cartArray);
-
-    //console.log(this.product);
-    // this.cartArray =this.product
-    // this.cartArray = this.cartService.addToCart(this.product);
-    //this.cartArray.push(this.product);
-    //console.log(this.cartArray);    
+    this.subscription = this.checkFunction();
   }
-  
-  removeFromCart(val) {
-    this.cartArray = this.cartArray.filter(t => t.Product !== val.Product);
-    this.sum = this.sum - Number(val.Price);
-    console.log("Sum in cart",this.sum);
 
+  //Sends the selected item details to Cart Service so that it is removed from cart
+  removeFromCart(val, bool) {
+    this.cartService.cart(val, 0);
   }
-  // total(cartArray){
-  //   this.sum=this.cartService.total(cartArray);
-  // } 
-
 }

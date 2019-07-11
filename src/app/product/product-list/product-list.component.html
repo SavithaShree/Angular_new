@@ -1,38 +1,23 @@
-<style>
-    .product-box {
-        /* background-color: lightgrey; */
-        width: 400px;
-        border: 5px solid rgb(45, 30, 70);
-        padding: 50px;
-        margin: 20px;
-    }
-</style>
-
 <body>
     <div style="display: flex; flex-direction: row;">
         <div>
-            <!-- <p>product-list works!</p> -->
-            <input type="button" class="fade" value="Men" (click)="sort($event)">
-            <input type="button" class="fade" value="Women" (click)="sort($event)">
-            <input type="button" class="fade" value="Kids" (click)="sort($event)">
-
-
-
+            <input type="button" class="fade" value="Men" (click)="selectCategory($event)">
+            <input type="button" class="fade" value="Women" (click)="selectCategory($event)">
+            <input type="button" class="fade" value="Kids" (click)="selectCategory($event)">
             <ul>
-
-                <li *ngFor="let data of sortArray">
+                <li *ngFor="let data of selectedArray">
                     <div class="product-box">
                         <p>{{data.Product}}</p>
                         <p>{{data.Brand}}</p>
-                        <!-- <p>{{product.Product}}</p> -->
                         <p><img style="height: 250px; width: 250px;" src={{data.Image}} alt=""></p>
                         <p>Price: {{data.Price}}</p>
-                        <p>{{data.Description}} <button (click)="newPage(data.id)">View more</button></p>
+                        <p>{{data.Description}} <input type="button" class="fade" (click)="newPage(data.id)" value="View more"></p>
                         <p *ngIf="data.isFound">
-            <input type="button" class="fade" (click)="clickAddToCart(data)" value="Add to cart" disabled style="opacity: 0.5;">
-        </p>
+                            <input type="button" class="fade" (click)="clickAddToCart(data)" value="Add to cart"
+                                disabled style="opacity: 0.5;">
+                        </p>
                         <p *ngIf="!data.isFound">
-                        <input type="button" class="fade" (click)="clickAddToCart(data)" value="Add to cart">
+                            <input type="button" class="fade" (click)="clickAddToCart(data)" value="Add to cart">
                         </p>
                     </div>
                 </li>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { List } from '../sharedservices/product.service';
 import { CartService } from 'src/app/cart/sharedservices/cart.service';
-// import { appRoutes } from 'src/app/routerConfig';
 import { Router } from '@angular/router';
 
 
@@ -11,53 +10,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-
-  //private listdata: any= []
-  sortArray: any = [];
-
-  //sample: Object;
-  sample: any = [];
-  // product: object;
+  selectedArray: any = [];
+  private sendingObject: any = [];
   constructor(private list: List,
     private cartService: CartService,
-    private router: Router) { }
+    private router: Router) {
+
+  }
 
   ngOnInit() {
-    //   this.list.getJSON().subscribe(data => {
-    //     this.listdata=data;
-    //     console.log(this.listdata);
-    // });
-  }
-  sort(val) {
-
-    this.sortArray = this.list.sort(val);
+    this.selectedArray = this.list.defaultCategory();
   }
 
+  selectCategory(val) {
+    this.selectedArray = this.list.selectCategory(val);
+  }
+
+  //Sends product details to Cart Service so that it is added in cart
   clickAddToCart(data) {
-    
-    this.sample = {
+    this.sendingObject = {
       Product: data.Product,
       Price: data.Price
-      // isFound: data.isFound
     }
-     data.isFound = true;
-    this.cartService.addToCart(this.sample);
-
+    data.isFound = true;
+    this.cartService.cart(this.sendingObject, 1);
   }
-  // clickAddToCart(val1, val2){
-  //   this.sample={
-  //     Product: val1,
-  //     Price: val2
-  //   }
-  //   alert("hi");
-  //   console.log(this.sample);
-  //   this.cartService.addToCart(this.sample);
-  // }
 
+  //Moves to Detailed description page and sends content of selected product to be displayed
   newPage(val) {
     this.router.navigateByUrl('detailedList');
     this.list.detailedPage(val);
-
   }
 
 }

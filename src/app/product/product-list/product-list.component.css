@@ -1,0 +1,6 @@
+.product-box {
+    width: 400px;
+    border: 5px solid rgb(45, 30, 70);
+    padding: 35px;
+    margin: 20px;
+}
