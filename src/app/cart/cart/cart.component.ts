@@ -15,7 +15,6 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService,
     private list: List) {
-    //this.subscription = this.checkFunction();
   }
 
   checkFunction() {
