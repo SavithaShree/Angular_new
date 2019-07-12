@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
@@ -12,6 +12,7 @@ import { CartService } from 'src/app/cart/sharedservices/cart.service';
   styleUrls: ['./detailed-product.component.css']
 })
 export class DetailedProductComponent implements OnInit {
+  @Input() toggle: boolean;
   detailedArray: any = [];
   sendingObject: object;
   subscribtion: Subscription;
@@ -19,7 +20,7 @@ export class DetailedProductComponent implements OnInit {
   constructor(private list: List, private cartService: CartService, private router: Router) {
   }
 
-  subscibeFunction(){
+  subscibeFunction() {
     this.list.detailed.subscribe(val => {
       this.detailedArray = val;
       console.log(this.detailedArray)
@@ -33,7 +34,7 @@ export class DetailedProductComponent implements OnInit {
 
   //Sends the Product name and Price of selected product to be added in cart 
   clickAddToCart(val) {
-    val.isFound= !val.isFound
+    val.isFound = !val.isFound
     this.sendingObject = {
       Product: val.Product,
       Price: val.Price,
@@ -45,6 +46,7 @@ export class DetailedProductComponent implements OnInit {
 
   //Comes back to Product list page
   backPage() {
-    this.router.navigateByUrl('/productList');
+    this.router.navigateByUrl('productList');
   }
+
 }

@@ -22,10 +22,5 @@ export class CartService {
   cart(val){
     this.cartServiceSubject.next(this.servicecartArray);
   }
-  // toggleFunction(val){
-    
-  // }
-
   
 }
-  

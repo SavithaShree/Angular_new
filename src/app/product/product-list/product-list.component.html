@@ -1,9 +1,6 @@
 <body >
     <div style="display: flex; flex-direction: row;">
         <div>
-            <input type="button" class="fade" value="Men" (click)="selectCategory($event)">
-            <input type="button" class="fade" value="Women" (click)="selectCategory($event)">
-            <input type="button" class="fade" value="Kids" (click)="selectCategory($event)">
             <ul>
                 <li *ngFor="let data of selectArray">
                     <div class="product-box">
@@ -13,7 +10,7 @@
                         <p>Price: {{data.Price}}</p>
                         <p>{{data.Description}} <input type="button" class="fade" (click)="newPage(data.id)"
                                 value="View more"></p>
-                        <input type="button" class="fade" (click)="clickAddToCart(data)" value="Add to cart">
+                        <input type="button" class="fade" (click)="clickAddToCart(data)" toggle="data.isFound" value="Add to cart">
                     </div>
                 </li>
 

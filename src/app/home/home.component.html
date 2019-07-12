@@ -1,1 +1,10 @@
-<prod-list></prod-list> 
+<!-- <a routeLink="productList" value="Men" (click)="selectCategory($event)">Men</a>
+<router-outlet></router-outlet> -->
+<!-- <input type="button" class="fade" value="Men" (click)="productListpage($event)"> -->
+<!-- <p>hello</p>
+<nav><a routerLink="productList" routerLinkActive="Active">Men</a></nav>
+<prod-list></prod-list>  -->
+<input type="button" class="fade" value="Men" (click)="selectedCategory('Men')">
+<input type="button" class="fade" value="Women" (click)="selectedCategory('Women')">
+<input type="button" class="fade" value="Kids" (click)="selectedCategory('Kids')">
+<prod-list></prod-list>

@@ -24,3 +24,8 @@ body
     background-size: cover;
     background-position: center;
 }
+b{
+    font-size: 35px;
+    color: rgb(45, 30, 70);
+    text-align: center;
+}

@@ -8,10 +8,12 @@ import { BehaviorSubject } from 'rxjs';
 })
 
 export class List {
+    selectedArray: any = [];
     detail = new BehaviorSubject<any>([]);
     detailed = this.detail.asObservable();
+    home= new BehaviorSubject<any>(this.selectedArray);
+    homeSubject= this.home.asObservable();
     listdata: any = [];
-    selectedArray: any = [];
     detailedItem: any[];
     private jsonURL = 'assets/list.json';
     constructor(private http: HttpClient) {
@@ -36,9 +38,9 @@ export class List {
     //Fetches selected data from json on clicking one item
     selectCategory(val) {
         this.selectedArray = this.listdata.filter(data => {
-            return data.Category == val.target.value;
+            return data.Category == val;
         })
-        return this.selectedArray;
+        this.home.next(this.selectedArray);
     }
 
     //Fetches the data of selected item to be displayed in Detailed description page
@@ -48,5 +50,4 @@ export class List {
         })
         this.detail.next(this.detailedItem);
     }
-
 }
