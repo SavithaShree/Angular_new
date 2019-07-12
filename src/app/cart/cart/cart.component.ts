@@ -13,12 +13,11 @@ export class CartComponent implements OnInit {
   private cartTotal: number = 0;
   private subscription: Subscription;
 
-  constructor(private cartService: CartService,
-    private list: List) {
+  constructor(private cartService: CartService, private list: List) {
   }
 
   checkFunction() {
-    this.cartService.cast.subscribe(array => {
+    this.cartService.cartSubject.subscribe(array => {
       this.cartArray = array;
       if (this.cartArray.length === 0) {
         this.cartTotal = 0;
@@ -36,7 +35,8 @@ export class CartComponent implements OnInit {
   }
 
   //Sends the selected item details to Cart Service so that it is removed from cart
-  removeFromCart(val, bool) {
-    this.cartService.cart(val, 0);
+  clickRemoveFromCart(val) {
+    this.cartService.removeFromCart(val);
   }
+
 }

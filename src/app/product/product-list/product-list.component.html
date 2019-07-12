@@ -1,11 +1,11 @@
-<body>
+<body >
     <div style="display: flex; flex-direction: row;">
         <div>
             <input type="button" class="fade" value="Men" (click)="selectCategory($event)">
             <input type="button" class="fade" value="Women" (click)="selectCategory($event)">
             <input type="button" class="fade" value="Kids" (click)="selectCategory($event)">
             <ul>
-                <li *ngFor="let data of selectedArray">
+                <li *ngFor="let data of selectArray">
                     <div class="product-box">
                         <p>{{data.Product}}</p>
                         <p>{{data.Brand}}</p>

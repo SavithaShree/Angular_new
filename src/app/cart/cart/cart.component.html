@@ -4,7 +4,7 @@
             <div *ngIf="carts.Product">
                 <p>{{carts.Product}}</p>
                 <p>{{carts.Price}}</p>
-                <input type="button" class="fade" value="Remove from cart" (click)="removeFromCart(carts,0)">
+                <input type="button" class="fade" value="Remove from cart" (click)="clickRemoveFromCart(carts)">
             </div>
         </li>
     </ul>
