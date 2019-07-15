@@ -40,6 +40,7 @@ export class List {
         this.selectedArray = this.listdata.filter(data => {
             return data.Category == val;
         })
+        console.log("servicelist",this.selectedArray)
         this.home.next(this.selectedArray);
     }
 

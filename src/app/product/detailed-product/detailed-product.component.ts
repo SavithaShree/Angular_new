@@ -46,7 +46,7 @@ export class DetailedProductComponent implements OnInit {
 
   //Comes back to Product list page
   backPage() {
-    this.router.navigateByUrl('productList');
+    this.router.navigateByUrl('');
   }
 
 }

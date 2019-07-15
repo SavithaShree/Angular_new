@@ -14,6 +14,17 @@ export class HomeComponent implements OnInit {
   subscribeCart: Subscription;
   selectedArray:any=[];
   cartTotal:number;
+  categoryArray=[
+    {
+    category: "Men"
+    },
+    {
+    category: "Women"
+    },
+    {
+    category: "Kids"
+    },
+  ]
   constructor(private list: List, private router: Router, private cartService: CartService) { }
 
   checkFunction() {
@@ -34,6 +45,9 @@ export class HomeComponent implements OnInit {
     this.subscribeCart = this.checkFunction();
   }
   selectedCategory(val){
+    alert("hii");
+    console.log(val);
+    this.router.navigate(['/productList',val]);
     this.list.selectCategory(val);
   }
 
