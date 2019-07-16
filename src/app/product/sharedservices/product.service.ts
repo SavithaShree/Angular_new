@@ -7,19 +7,21 @@ import { BehaviorSubject } from 'rxjs';
     providedIn: 'root'
 })
 
-export class List {
-    selectedArray: any = [];
+export class ProductService {
+    selectedArray = [];
+    selectArray = [];
     detail = new BehaviorSubject<any>([]);
     detailed = this.detail.asObservable();
-    home= new BehaviorSubject<any>(this.selectedArray);
+    home= new BehaviorSubject<any>(this.selectArray);
     homeSubject= this.home.asObservable();
-    listdata: any = [];
-    detailedItem: any[];
+    listdata = [];
+    detailedItem = [];
+    
     private jsonURL = 'assets/list.json';
     constructor(private http: HttpClient) {
-        this.getJSON().subscribe(data => {
-            this.listdata = data;
-        });
+        // this.getJSON().subscribe(data => {
+        //     this.listdata = data;
+        // });
     }
     public getJSON(): Observable<any> {
         return this.http.get(this.jsonURL);
@@ -29,17 +31,24 @@ export class List {
         this.getJSON().subscribe(data => {
             this.listdata = data;
         });
-        this.selectedArray = this.listdata.filter(data => {
+        this.selectArray = this.listdata.filter(data => {
             return data.Category == "Men";
         })
-        return this.selectedArray;
+        return this.selectArray;
     }
 
     //Fetches selected data from json on clicking one item
-    selectCategory(val) {
-        this.selectedArray = this.listdata.filter(data => {
-            return data.Category == val;
-        })
+    // selectCategory(val ) {
+    //     this.selectedArray = this.listdata.filter(data => {
+    //         return data.Category == val;
+    //     })
+        selectCategory(val1, val2) {
+            val2 = this.listdata.filter(data => {
+                console.log("data",data);
+                return data.Category == val1;
+            })
+            console.log("alert",val2);
+            return val2;
         console.log("servicelist",this.selectedArray)
         this.home.next(this.selectedArray);
     }

@@ -11,9 +11,9 @@
                     style="opacity: 0.5;">
             </p>
             <p *ngIf="!data.isFound">
-                    <input type="button" class="fade" (click)="clickAddToCart(data)" value="Add to cart">
+                    <input type="button" class="fade" (click)="addToCart(data)" value="Add to cart">
             </p>
-            <input type="button" class="fade" (click)="backPage()" value="Back to product list">
+            <input type="button" class="fade" (click)="backPage(data.Category)" value="Back to product list">
         </div>
     </li>
 </ul>

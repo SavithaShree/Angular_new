@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../sharedservices/cart.service';
 import { Subscription } from 'rxjs';
-import { List } from 'src/app/product/sharedservices/product.service'
+import { ProductService } from 'src/app/product/sharedservices/product.service'
 
 @Component({
   selector: 'app-cart',
@@ -9,14 +9,14 @@ import { List } from 'src/app/product/sharedservices/product.service'
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  private cartArray: any = [];
+  private cartArray = [];
   private cartTotal: number = 0;
   private subscription: Subscription;
 
-  constructor(private cartService: CartService, private list: List) {
+  constructor(private cartService: CartService, private productService: ProductService) {
   }
 
-  checkFunction() {
+  cartSum() {
     this.cartService.cartSubject.subscribe(array => {
       this.cartArray = array;
       if (this.cartArray.length === 0) {
@@ -31,7 +31,7 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.subscription = this.checkFunction();
+     this.cartSum();
   }
 
   //Sends the selected item details to Cart Service so that it is removed from cart

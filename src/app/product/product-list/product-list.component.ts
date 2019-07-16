@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/cart/sharedservices/cart.service';
-import { List } from '../sharedservices/product.service';
-import { Subscription } from 'rxjs';
+import { ProductService } from '../sharedservices/product.service';
 
 @Component({
   selector: 'prod-list',
@@ -11,34 +10,43 @@ import { Subscription } from 'rxjs';
 })
 export class ProductListComponent implements OnInit {
   toggle: boolean;
-  selectArray: any;
-  subscriber: Subscription;
-  private sendingObject: any = [];
-  constructor(private list: List, private cartService: CartService, private router: Router) {
+  selectArray = [];
+  productList = [];
+  param;
+  constructor(private productService: ProductService, private cartService: CartService, private router: Router, private route: ActivatedRoute) {
+  }
+
+  getValue(){
+
   }
 
   ngOnInit() {
-    this.selectArray = this.list.homeSubject.subscribe(val =>{
-      console.log(val);
-      this.selectArray=val});
-    //this.selectArray = this.list.defaultCategory();
+    this.route.params.subscribe(param => {this.param=param
+      console.log("param",this.param)});
+    this.productService.getJSON().subscribe(data => {
+      this.productList = data;
+      console.log("list",this.productList)
+      // this.selectArray=this.productService.selectCategory(this.param, this.productList)
+      // console.log(this.selectArray)
+      this.getValue();
+  });
+  
+      // this.productService.homeSubject.subscribe(val =>{
+      //   console.log(val);
+      //   this.selectArray=val});
+    //this.selectArray = this.productService.defaultCategory();
   }
   
    
   //Sends product details to Cart Service so that it is added in cart
-  clickAddToCart(data) {
-    this.sendingObject = {
-      Product: data.Product,
-      Price: data.Price,
-      Id : data.id,
-    }
-    this.cartService.addToCart(this.sendingObject);
+  addToCart(data) {
+    this.cartService.addToCart(data);
   }
 
   //Moves to Detailed description page and sends content of selected product to be displayed
   newPage(val) {
-    this.router.navigateByUrl('detailedList');
-    this.list.detailedPage(val);
+    this.router.navigateByUrl('About');
+    this.productService.detailedPage(val);
   }
 
 }

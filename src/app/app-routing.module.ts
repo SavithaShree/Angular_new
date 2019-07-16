@@ -3,20 +3,22 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
-import { DetailedProductComponent } from './product/detailed-product/detailed-product.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    // redirectTo: 'Category/Men',
+    // pathMatch: 'full'
   },
   {
-    path: 'productList/:category',
+    path: 'Category/:category',
     component: ProductListComponent
   },
   {
-    path: 'detailedList',
-    component: DetailedProductComponent
+    path: 'About',
+    component: ProductDetailComponent
   }
 ];
 

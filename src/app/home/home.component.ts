@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { List } from 'src/app/product/sharedservices/product.service';
+import { ProductService } from 'src/app/product/sharedservices/product.service';
 import { CartService } from 'src/app/cart/sharedservices/cart.service';
 import { Subscription } from 'rxjs';
 
@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 export class HomeComponent implements OnInit {
   subscribeProduct: Subscription;
   subscribeCart: Subscription;
-  selectedArray:any=[];
+  selectedArray = [];
   cartTotal:number;
   categoryArray=[
     {
@@ -25,9 +25,9 @@ export class HomeComponent implements OnInit {
     category: "Kids"
     },
   ]
-  constructor(private list: List, private router: Router, private cartService: CartService) { }
+  constructor(private productService: ProductService, private router: Router, private cartService: CartService) { }
 
-  checkFunction() {
+  cartSum() {
     this.cartService.cartSubject.subscribe(array => {
       this.selectedArray = array;
       if (this.selectedArray.length === 0) {
@@ -42,13 +42,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.subscribeCart = this.checkFunction();
+    //this.subscribeCart = this.cartSum();
   }
-  selectedCategory(val){
-    alert("hii");
-    console.log(val);
-    this.router.navigate(['/productList',val]);
-    this.list.selectCategory(val);
-  }
+  // selectedCategory(val){
+  //   console.log(val);
+  //   this.productService.selectCategory(val);
+  //   this.router.navigate(['/Category',val]);    
+  // }
 
 }
