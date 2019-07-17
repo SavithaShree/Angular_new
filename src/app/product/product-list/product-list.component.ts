@@ -11,25 +11,39 @@ import { ProductService } from '../sharedservices/product.service';
 export class ProductListComponent implements OnInit {
   toggle: boolean;
   selectArray = [];
-  productList = [];
-  param;
+  productList:any = [];
+  param: object;
   constructor(private productService: ProductService, private cartService: CartService, private router: Router, private route: ActivatedRoute) {
   }
 
-  getValue(){
+  // getValue(){
 
-  }
+  // }
 
   ngOnInit() {
     this.route.params.subscribe(param => {this.param=param
       console.log("param",this.param)});
-    this.productService.getJSON().subscribe(data => {
-      this.productList = data;
-      console.log("list",this.productList)
+      console.log("check")
+    this.productList = this.productService.listArray;
+    console.log("before",this.productList)
+    if(this.productList.length==0){
+      console.log("hi")
+      this.productService.getJSON().subscribe(data =>{
+        console.log("data",data);
+        this.productList = data });
+        console.log("productlist",this.productList)
+      // set getproductList(this.param){
+      //   this.productService.getJSON.subscribe(data =>
+      //     this.productList = data);
+      // }
+    }
+    // this.productService.getJSON().subscribe(data => {
+    //   this.productList = data;
+    //   console.log("list",this.productList)
       // this.selectArray=this.productService.selectCategory(this.param, this.productList)
       // console.log(this.selectArray)
-      this.getValue();
-  });
+      //this.getValue();
+  //});
   
       // this.productService.homeSubject.subscribe(val =>{
       //   console.log(val);
