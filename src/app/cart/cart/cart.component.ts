@@ -16,6 +16,7 @@ export class CartComponent implements OnInit {
   }
 
   cartSum() {
+
     this.cartService.cartSubject.subscribe(array => {
       this.cartArray = array;
       if (this.cartArray.length === 0) {

@@ -25,10 +25,10 @@ export class ProductListComponent implements OnInit {
         this.productService.getJSON().subscribe(data => {
           this.productList = data;
           this.selectArray = this.productList.filter(val => val.Category === this.param.category);
-          this.cartService.cartSubject.subscribe(val => {
-            let checkArray = val;
-            this.selectArray = this.productService.checkIfAdded(checkArray, this.selectArray);
-          })
+          // this.cartService.cartSubject.subscribe(val => {
+          //   let checkArray = val;
+          //   this.selectArray = this.productService.checkIfAdded(checkArray, this.selectArray);
+          // })
         });
       }
     });
