@@ -1,4 +1,4 @@
-<body >
+<body>
     <div style="display: flex; flex-direction: row;">
         <div>
             <ul>
@@ -10,10 +10,16 @@
                         <p>Price: {{data.Price}}</p>
                         <p>{{data.Description}} <input type="button" class="fade" (click)="newPage(data)"
                                 value="View more"></p>
-                        <input type="button" class="fade" (click)="addToCart(data)" toggle="data.isFound" value="Add to cart">
+                        <p *ngIf="data.isFound">
+                            <input type="button" class="fade" (click)="addToCart(data)" value="Add to cart" disabled
+                                style="opacity: 0.5;">
+                            <!-- <input type="button" [disabled]="data.isFound" class="fade" (click)="addToCart(data)" value="Add to cart"> -->
+                        </p>
+                        <p *ngIf="!data.isFound">
+                            <input type="button" class="fade" (click)="addToCart(data)" value="Add to cart">
+                        </p>
                     </div>
                 </li>
-
             </ul>
         </div>
         <app-cart></app-cart>

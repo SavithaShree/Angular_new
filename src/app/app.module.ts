@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductModule } from './product';
-import { CartModule } from './cart';
+import { ProductModule } from '../app/product/product.module';
+import { CartModule } from '../app/cart/cart.module';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({

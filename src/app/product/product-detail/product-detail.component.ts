@@ -1,10 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { Subscription } from 'rxjs';
 
 import { ProductService } from '../shared/product.service';
 import { CartService } from 'src/app/cart/shared/cart.service';
+import { Product } from 'src/app/product';
 
 @Component({
   selector: 'app-detailed-product',
@@ -12,8 +11,7 @@ import { CartService } from 'src/app/cart/shared/cart.service';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  detailedArray = [];
-  subscribtion: Subscription;
+  detailedArray: Product[] = [];
 
   constructor(private productService: ProductService, private cartService: CartService, private router: Router) {
   }
@@ -21,7 +19,10 @@ export class ProductDetailComponent implements OnInit {
   subscibeFunction() {
     this.productService.detailed.subscribe(val => {
       this.detailedArray.push(val)
-      console.log("array:",this.detailedArray)
+    })
+    this.cartService.cartSubject.subscribe(val => {
+      let checkArray = val;
+      this.detailedArray = this.productService.checkIfAdded(checkArray, this.detailedArray);
     })
     return this.detailedArray;
   }
@@ -32,19 +33,12 @@ export class ProductDetailComponent implements OnInit {
 
   //Sends the Product name and Price of selected product to be added in cart 
   addToCart(val) {
-    // val.isFound = !val.isFound
-    // this.sendingObject = {
-    //   Product: val.Product,
-    //   Price: val.Price,
-    //   Id: val.id,
-    //   toggle: val.isFound
-    // }
     this.cartService.addToCart(val);
   }
 
   //Comes back to Product list page
-  backPage(val) {
-    this.router.navigate(['/Category',val]);
+  previousPage(val) {
+    this.router.navigate(['/Category', val]);
   }
 
 }

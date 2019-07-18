@@ -1,6 +1,3 @@
-<!-- <input type="button" class="fade" value="Men" (click)="selectedCategory('Men')">
-<input type="button" class="fade" value="Women" (click)="selectedCategory('Women')">
-<input type="button" class="fade" value="Kids" (click)="selectedCategory('Kids')"> -->
 <nav>
     <div *ngFor="let category of categoryArray">
         <a [routerLink]="['/Category', category.category]" routerLinkActivate="Active">{{category.category}}</a>

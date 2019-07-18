@@ -8,7 +8,6 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
 const routes: Routes = [
   {
     path: '',
-    //component: HomeComponent,
     redirectTo: 'Category/Men',
     pathMatch: 'full'
   },

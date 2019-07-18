@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import { Product } from 'src/app/product';
 
 @Injectable({
     providedIn: 'root'
@@ -10,10 +11,7 @@ import { BehaviorSubject } from 'rxjs';
 export class ProductService {
     detail = new BehaviorSubject<any>([]);
     detailed = this.detail.asObservable();
-    // home = new BehaviorSubject<any>(this.selectArray);
-    // homeSubject = this.home.asObservable();
-    productList = [];
-    //detailedItem = [];
+    productList: Product[] = [];
 
     private jsonURL = 'assets/list.json';
     constructor(private http: HttpClient) {
@@ -31,5 +29,15 @@ export class ProductService {
     detailedPage(val) {
         console.log("serviceinside", val);
         this.detail.next(val);
+    }
+
+    checkIfAdded(val1, val2) {
+        for (let outerloop of val1) {
+            for (let innerloop of val2) {
+                if (outerloop.id == innerloop.id)
+                    innerloop.isFound = true;
+            }
+        }
+        return val2;
     }
 }
