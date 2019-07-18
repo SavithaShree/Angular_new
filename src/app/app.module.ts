@@ -5,8 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductModule } from './product/product.module';
-import { CartModule } from './cart/cart.module';
+import { ProductModule } from './product';
+import { CartModule } from './cart';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({

@@ -12,11 +12,8 @@ export class CartService {
 
   //Performs add and remove cart functions
   addToCart(val) {
-    // val.isFound= !val.isFound;
-    // console.log("serviceaddtocart",val)
       this.servicecartArray.push(val);
       this.cart(this.servicecartArray);
-      // return val;     
   }
   removeFromCart(val){    
       this.servicecartArray = this.servicecartArray.filter(t => t.Product !== val.Product);

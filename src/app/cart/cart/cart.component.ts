@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../sharedservices/cart.service';
-import { Subscription } from 'rxjs';
-import { ProductService } from 'src/app/product/sharedservices/product.service'
+import { CartService } from '../shared/cart.service';
+import { ProductService } from 'src/app/product/shared/product.service'
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +10,6 @@ import { ProductService } from 'src/app/product/sharedservices/product.service'
 export class CartComponent implements OnInit {
   private cartArray = [];
   private cartTotal: number = 0;
-  private subscription: Subscription;
 
   constructor(private cartService: CartService, private productService: ProductService) {
   }

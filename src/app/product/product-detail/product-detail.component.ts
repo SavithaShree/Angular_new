@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 
-import { ProductService } from '../sharedservices/product.service';
-import { CartService } from 'src/app/cart/sharedservices/cart.service';
+import { ProductService } from '../shared/product.service';
+import { CartService } from 'src/app/cart/shared/cart.service';
 
 @Component({
   selector: 'app-detailed-product',
@@ -13,7 +13,6 @@ import { CartService } from 'src/app/cart/sharedservices/cart.service';
 })
 export class ProductDetailComponent implements OnInit {
   detailedArray = [];
-  sendingObject: object;
   subscribtion: Subscription;
 
   constructor(private productService: ProductService, private cartService: CartService, private router: Router) {
@@ -21,8 +20,8 @@ export class ProductDetailComponent implements OnInit {
 
   subscibeFunction() {
     this.productService.detailed.subscribe(val => {
-      this.detailedArray = val;
-      console.log(this.detailedArray)
+      this.detailedArray.push(val)
+      console.log("array:",this.detailedArray)
     })
     return this.detailedArray;
   }
