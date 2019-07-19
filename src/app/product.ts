@@ -9,4 +9,5 @@ export class Product{
     Image: Url;
     Price: number;
     Description: string;
+    randomCount: number;
 }

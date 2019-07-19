@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
+import { Product } from 'src/app/product';
+
 import { CartService } from '../shared/cart.service';
 import { ProductService } from '../../product/shared/product.service';
-import { Product } from 'src/app/product';
+
 
 @Component({
   selector: 'app-cart',
@@ -19,15 +22,15 @@ export class CartComponent implements OnInit {
   cartSum() {
     this.cartService.cartSubject$.subscribe(array => {
       this.cartArray = array;
-      if (this.cartArray.length === 0) {
-        this.cartTotal = 0;
-      }
-      this.cartTotal = 0;
+      console.log("cart",this.cartArray)
+      let cartTotal = 0;
       for (let cart of this.cartArray) {
         this.cartTotal = this.cartTotal + Number(cart.Price)
       }
+      // this.cartArray.reduce(cartTotal, cart => {
+      //   cartTotal= cartTotal + cart.Price;
+      // })
     })
-    return this.cartArray;
   }
 
   ngOnInit() {
@@ -35,7 +38,7 @@ export class CartComponent implements OnInit {
   }
 
   //Sends the selected item details to Cart Service so that it is removed from cart
-  clickRemoveFromCart(val) {
+  removeFromCart(val) {
     this.cartService.removeFromCart(val);
   }
 

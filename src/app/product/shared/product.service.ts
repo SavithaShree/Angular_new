@@ -29,13 +29,13 @@ export class ProductService {
         this.detailedSubject.next(val);
     }
 
-    checkIfAdded(val1, val2) {
-        for (let outerloop of val1) {
-            for (let innerloop of val2) {
-                if (outerloop.id == innerloop.id)
-                    innerloop.isFound = true;
-            }
-        }
-        return val2;
-    }
+    // checkIfAdded(val1, val2) {
+    //     for (let outerloop of val1) {
+    //         for (let innerloop of val2) {
+    //             if (outerloop.id == innerloop.id)
+    //                 innerloop.isFound = true;
+    //         }
+    //     }
+    //     return val2;
+    // }
 }

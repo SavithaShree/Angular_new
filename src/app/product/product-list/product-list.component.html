@@ -10,13 +10,15 @@
                         <p>Price: {{data.Price}}</p>
                         <p>{{data.Description}} <input type="button" class="fade" (click)="newPage(data)"
                                 value="View more"></p>
-                        <p *ngIf="data.isFound">
+                        <!-- <p *ngIf="data.isFound">
                             <input type="button" class="fade" (click)="addToCart(data)" value="Add to cart" disabled
                                 style="opacity: 0.5;">
                         </p>
                         <p *ngIf="!data.isFound">
                             <input type="button" class="fade" (click)="addToCart(data)" value="Add to cart">
-                        </p>
+                        </p> -->
+                        <input type="button" [disabled]="data.isFound" class="fade" (click)="addToCart(data)" value="Add to cart">
+
                     </div>
                 </li>
             </ul>

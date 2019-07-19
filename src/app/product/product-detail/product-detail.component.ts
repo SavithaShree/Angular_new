@@ -20,10 +20,10 @@ export class ProductDetailComponent implements OnInit {
     this.productService.detailed$.subscribe(val => {
       this.detailedArray.push(val)
     })
-    this.cartService.cartSubject$.subscribe(val => {
-      let checkArray = val;
-      this.detailedArray = this.productService.checkIfAdded(checkArray, this.detailedArray);
-    })
+    // this.cartService.cartSubject$.subscribe(val => {
+    //   let checkArray = val;
+    //   this.detailedArray = this.productService.checkIfAdded(checkArray, this.detailedArray);
+    // })
     return this.detailedArray;
   }
 

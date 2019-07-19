@@ -25,10 +25,10 @@ export class ProductListComponent implements OnInit {
         this.productService.getJSON().subscribe(data => {
           this.productList = data;
           this.selectedCategory = this.productList.filter(val => val.Category === this.param.category);
-          this.cartService.cartSubject$.subscribe(val => {
-            let checkArray = val;
-            this.selectedCategory = this.productService.checkIfAdded(checkArray, this.selectedCategory);
-          })
+          // this.cartService.cartSubject$.subscribe(val => {
+          //   let checkArray = val;
+          //   this.selectedCategory = this.productService.checkIfAdded(checkArray, this.selectedCategory);
+          // })
         });
       }
     });
@@ -46,7 +46,6 @@ export class ProductListComponent implements OnInit {
 
   //Moves to Detailed description page and sends content of selected product to be displayed
   newPage(val) {
-    console.log(val);
     this.router.navigateByUrl('About');
     this.productService.detailedPage(val);
   }
