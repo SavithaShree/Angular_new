@@ -9,20 +9,19 @@ import { Product } from 'src/app/product';
 export class CartService {
   private servicecartArray: Product[] = [];
   cartServiceSubject = new BehaviorSubject<any>(this.servicecartArray);
-  cartSubject = this.cartServiceSubject.asObservable();
+  cartSubject$ = this.cartServiceSubject.asObservable();
 
   //Performs add and remove cart functions
   addToCart(val) {
-    console.log("addtocart",val);
-      this.servicecartArray.push(val);
-      this.cart(this.servicecartArray);
+    this.servicecartArray.push(val);
+    this.cart(this.servicecartArray);
   }
-  removeFromCart(val){    
-      this.servicecartArray = this.servicecartArray.filter(t => t.id !== val.id);
-      this.cart(this.servicecartArray);
+  removeFromCart(val) {
+    this.servicecartArray = this.servicecartArray.filter(t => t.id !== val.id);
+    this.cart(this.servicecartArray);
   }
-  cart(val){
+  cart(val) {
     this.cartServiceSubject.next(this.servicecartArray);
   }
-  
+
 }

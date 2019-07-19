@@ -2,7 +2,7 @@
     <div style="display: flex; flex-direction: row;">
         <div>
             <ul>
-                <li *ngFor="let data of selectArray">
+                <li *ngFor="let data of selectedCategory">
                     <div class="product-box">
                         <p>{{data.Product}}</p>
                         <p>{{data.Brand}}</p>
@@ -13,7 +13,6 @@
                         <p *ngIf="data.isFound">
                             <input type="button" class="fade" (click)="addToCart(data)" value="Add to cart" disabled
                                 style="opacity: 0.5;">
-                            <!-- <input type="button" [disabled]="data.isFound" class="fade" (click)="addToCart(data)" value="Add to cart"> -->
                         </p>
                         <p *ngIf="!data.isFound">
                             <input type="button" class="fade" (click)="addToCart(data)" value="Add to cart">

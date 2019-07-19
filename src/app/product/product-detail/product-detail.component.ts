@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ProductService } from '../shared/product.service';
-import { CartService } from 'src/app/cart/shared/cart.service';
+import { CartService } from '../../cart';
 import { Product } from 'src/app/product';
 
 @Component({
@@ -17,13 +17,13 @@ export class ProductDetailComponent implements OnInit {
   }
 
   subscibeFunction() {
-    this.productService.detailed.subscribe(val => {
+    this.productService.detailed$.subscribe(val => {
       this.detailedArray.push(val)
     })
-    // this.cartService.cartSubject.subscribe(val => {
-    //   let checkArray = val;
-    //   this.detailedArray = this.productService.checkIfAdded(checkArray, this.detailedArray);
-    // })
+    this.cartService.cartSubject$.subscribe(val => {
+      let checkArray = val;
+      this.detailedArray = this.productService.checkIfAdded(checkArray, this.detailedArray);
+    })
     return this.detailedArray;
   }
 

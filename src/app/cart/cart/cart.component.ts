@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../shared/cart.service';
-import { ProductService } from 'src/app/product/shared/product.service'
+import { ProductService } from '../../product/shared/product.service';
 import { Product } from 'src/app/product';
 
 @Component({
@@ -15,9 +15,9 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService, private productService: ProductService) {
   }
 
+  //Performs total sum of the cart items
   cartSum() {
-
-    this.cartService.cartSubject.subscribe(array => {
+    this.cartService.cartSubject$.subscribe(array => {
       this.cartArray = array;
       if (this.cartArray.length === 0) {
         this.cartTotal = 0;
@@ -31,7 +31,7 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
-     this.cartSum();
+    this.cartSum();
   }
 
   //Sends the selected item details to Cart Service so that it is removed from cart

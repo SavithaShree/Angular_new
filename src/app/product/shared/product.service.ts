@@ -9,8 +9,8 @@ import { Product } from 'src/app/product';
 })
 
 export class ProductService {
-    detail = new BehaviorSubject<any>([]);
-    detailed = this.detail.asObservable();
+    detailedSubject = new BehaviorSubject<any>([]);
+    detailed$ = this.detailedSubject.asObservable();
     productList: Product[] = [];
 
     private jsonURL = 'assets/list.json';
@@ -24,20 +24,18 @@ export class ProductService {
         return this.productList;
     }
 
-
     //Fetches the data of selected item to be displayed in Detailed description page
     detailedPage(val) {
-        console.log("serviceinside", val);
-        this.detail.next(val);
+        this.detailedSubject.next(val);
     }
 
-    // checkIfAdded(val1, val2) {
-    //     for (let outerloop of val1) {
-    //         for (let innerloop of val2) {
-    //             if (outerloop.id == innerloop.id)
-    //                 innerloop.isFound = true;
-    //         }
-    //     }
-    //     return val2;
-    // }
+    checkIfAdded(val1, val2) {
+        for (let outerloop of val1) {
+            for (let innerloop of val2) {
+                if (outerloop.id == innerloop.id)
+                    innerloop.isFound = true;
+            }
+        }
+        return val2;
+    }
 }

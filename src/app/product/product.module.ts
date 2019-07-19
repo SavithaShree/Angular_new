@@ -5,7 +5,7 @@ import { ProductListComponent } from '../product/product-list/product-list.compo
 import { ProductDetailComponent } from '../product/product-detail/product-detail.component';
 import { CartModule } from '../cart/cart.module';
 import { CartComponent } from '../cart/cart/cart.component';
- 
+
 @NgModule({
   declarations: [ProductListComponent, ProductDetailComponent, CartComponent],
   imports: [
@@ -15,6 +15,6 @@ import { CartComponent } from '../cart/cart/cart.component';
   providers: [],
   exports: [ProductListComponent]
 })
-export class ProductModule { 
-  
+export class ProductModule {
+
 }
