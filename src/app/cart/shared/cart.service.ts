@@ -17,7 +17,7 @@ export class CartService {
     this.cartList.push(val);
     this.cart(this.cartList);
   }
-  
+
   removeFromCart(val) {
     this.cartList = this.cartList.filter(t => t.id !== val.id);
     this.cart(this.cartList);

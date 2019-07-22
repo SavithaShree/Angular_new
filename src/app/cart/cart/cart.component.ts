@@ -14,8 +14,7 @@ export class CartComponent implements OnInit {
   private cartArray: Product[] = [];
   private cartTotal: number;
 
-  constructor(private cartService: CartService,
-    private productService: ProductService) { }
+  constructor(private cartService: CartService, private productService: ProductService) { }
 
   ngOnInit() {
     this.cartSum();
@@ -26,8 +25,8 @@ export class CartComponent implements OnInit {
       this.cartArray = array;
       this.cartTotal = 0;
       this.cartTotal = this.cartArray.reduce((previous, current) => {
-        return previous + current.Price;}, 0);
-    })
+        return previous + current.Price; }, 0);
+    });
   }
 
   removeFromCart(val) {

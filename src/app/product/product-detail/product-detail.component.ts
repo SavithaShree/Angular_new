@@ -22,12 +22,12 @@ export class ProductDetailComponent implements OnInit {
 
   subscibeFunction() {
     this.productService.detailed$.subscribe(val => {
-      this.detailedArray.push(val)
-    })
+      this.detailedArray.push(val);
+    });
     this.cartService.cartSubject$.subscribe(val => {
-      let checkArray = val;
+      const checkArray = val;
       this.detailedArray = this.productService.checkIfAdded(checkArray, this.detailedArray);
-    })
+    });
   }
 
   addToCart(val) {

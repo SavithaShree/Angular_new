@@ -15,8 +15,9 @@ export class ProductListComponent implements OnInit {
   private selectedCategory: Product[] = [];
   private productList: Product[] = [];
   private param: any;
-  constructor(private productService: ProductService, private cartService: CartService, private router: Router, private route: ActivatedRoute) {
-  }
+  constructor(private productService: ProductService,
+              private cartService: CartService, private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.subscribeFunction();
@@ -24,16 +25,16 @@ export class ProductListComponent implements OnInit {
 
   subscribeFunction() {
     this.route.params.subscribe(param => {
-      this.param = param
+      this.param = param;
       this.productList = this.productService.listArray;
-      if (this.productList.length == 0) {
+      if (this.productList.length === 0) {
         this.productService.getJSON().subscribe(data => {
           this.productList = data;
           this.selectedCategory = this.productList.filter(val => val.Category === this.param.category);
           this.cartService.cartSubject$.subscribe(val => {
-            let checkArray = val;
+            const checkArray = val;
             this.selectedCategory = this.productService.checkIfAdded(checkArray, this.selectedCategory);
-          })
+          });
         });
       }
     });
@@ -43,7 +44,7 @@ export class ProductListComponent implements OnInit {
     this.cartService.addToCart(data);
   }
 
-  //Moves to Detailed description page and sends content of selected product to be displayed
+  // Moves to Detailed description page and sends content of selected product to be displayed
   newPage(val) {
     this.router.navigateByUrl('About');
     this.productService.detailedPage(val);

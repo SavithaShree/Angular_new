@@ -1,6 +1,6 @@
 import { Url } from 'url';
 
-export interface Product{
+export interface Product {
     id: number;
     isFound: boolean;
     Category: string;
@@ -9,5 +9,4 @@ export interface Product{
     Image: Url;
     Price: number;
     Description: string;
-    randomCount: number;
 }

@@ -8,13 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   categoryArray = [
     {
-      category: "Men"
+      category: 'Men'
     },
     {
-      category: "Women"
+      category: 'Women'
     },
     {
-      category: "Kids"
+      category: 'Kids'
     },
   ];
 
