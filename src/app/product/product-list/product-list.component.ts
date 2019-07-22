@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
 import { CartService } from 'src/app/cart';
 import { ProductService } from '../shared/product.service';
 import { Product } from 'src/app/product';
@@ -11,10 +12,14 @@ import { Product } from 'src/app/product';
 })
 
 export class ProductListComponent implements OnInit {
-  selectedCategory: Product[] = [];
-  productList: Product[] = [];
-  param: any;
+  private selectedCategory: Product[] = [];
+  private productList: Product[] = [];
+  private param: any;
   constructor(private productService: ProductService, private cartService: CartService, private router: Router, private route: ActivatedRoute) {
+  }
+
+  ngOnInit() {
+    this.subscribeFunction();
   }
 
   subscribeFunction() {
@@ -25,21 +30,15 @@ export class ProductListComponent implements OnInit {
         this.productService.getJSON().subscribe(data => {
           this.productList = data;
           this.selectedCategory = this.productList.filter(val => val.Category === this.param.category);
-          // this.cartService.cartSubject$.subscribe(val => {
-          //   let checkArray = val;
-          //   this.selectedCategory = this.productService.checkIfAdded(checkArray, this.selectedCategory);
-          // })
+          this.cartService.cartSubject$.subscribe(val => {
+            let checkArray = val;
+            this.selectedCategory = this.productService.checkIfAdded(checkArray, this.selectedCategory);
+          })
         });
       }
     });
-    return this.selectedCategory;
   }
 
-  ngOnInit() {
-    this.subscribeFunction();
-  }
-
-  //Sends product details to Cart Service so that it is added in cart
   addToCart(data) {
     this.cartService.addToCart(data);
   }

@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  selectedArray = [];
-  cartTotal: number;
   categoryArray = [
     {
       category: "Men"
@@ -18,7 +16,8 @@ export class HomeComponent implements OnInit {
     {
       category: "Kids"
     },
-  ]
+  ];
+
 constructor() { }
 
 ngOnInit() {

@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+
+import { Observable, throwError } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
 import { Product } from 'src/app/product';
 
 @Injectable({
@@ -12,12 +15,21 @@ export class ProductService {
     detailedSubject = new BehaviorSubject<any>([]);
     detailed$ = this.detailedSubject.asObservable();
     productList: Product[] = [];
-
     private jsonURL = 'assets/list.json';
+
     constructor(private http: HttpClient) {
     }
+
     public getJSON(): Observable<any> {
-        return this.http.get(this.jsonURL);
+        return this.http.get(this.jsonURL).pipe(
+            catchError(this.handleError));
+    }
+
+    handleError() {
+        let errorMessage = 'No products are available currently!';
+        window.alert(errorMessage);
+        return throwError(errorMessage);
+
     }
 
     get listArray() {
@@ -29,13 +41,13 @@ export class ProductService {
         this.detailedSubject.next(val);
     }
 
-    // checkIfAdded(val1, val2) {
-    //     for (let outerloop of val1) {
-    //         for (let innerloop of val2) {
-    //             if (outerloop.id == innerloop.id)
-    //                 innerloop.isFound = true;
-    //         }
-    //     }
-    //     return val2;
-    // }
+    checkIfAdded(val1, val2) {
+        for (let outerloop of val1) {
+            for (let innerloop of val2) {
+                if (outerloop.id == innerloop.id)
+                    innerloop.isFound = true;
+            }
+        }
+        return val2;
+    }
 }

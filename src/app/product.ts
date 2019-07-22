@@ -1,6 +1,6 @@
 import { Url } from 'url';
 
-export class Product{
+export interface Product{
     id: number;
     isFound: boolean;
     Category: string;

@@ -4,3 +4,7 @@
     padding: 35px;
     margin: 20px;
 }
+.product-list {
+    display: flex; 
+    flex-direction: row;
+}
