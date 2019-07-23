@@ -11,22 +11,19 @@ import { Product } from 'src/app/product';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  private detailedArray: Product[] = [];
+  detailedArray: Product[] = [];
 
-  constructor(private productService: ProductService, private cartService: CartService, private router: Router) {
-  }
+  constructor(private productService: ProductService,
+              private cartService: CartService,
+              private router: Router) { }
 
   ngOnInit() {
-    this.subscibeFunction();
+    this.subscibeProductDetail();
   }
 
-  subscibeFunction() {
+  private subscibeProductDetail() {
     this.productService.detailed$.subscribe(val => {
       this.detailedArray.push(val);
-    });
-    this.cartService.cartSubject$.subscribe(val => {
-      const checkArray = val;
-      this.detailedArray = this.productService.checkIfAdded(checkArray, this.detailedArray);
     });
   }
 

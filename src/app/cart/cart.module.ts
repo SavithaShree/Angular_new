@@ -7,11 +7,4 @@ import { CommonModule } from '@angular/common';
     CommonModule,
   ]
 })
-export class CartModule {
-    static forRoot() {
-      return {
-        NgModule: CartModule,
-        providers: []
-      };
-    }
-}
+export class CartModule { }

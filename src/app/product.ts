@@ -3,10 +3,10 @@ import { Url } from 'url';
 export interface Product {
     id: number;
     isFound: boolean;
-    Category: string;
-    Product: string;
-    Brand: string;
-    Image: Url;
-    Price: number;
-    Description: string;
+    category: string;
+    product: string;
+    brand: string;
+    image: Url;
+    price: number;
+    description: string;
 }

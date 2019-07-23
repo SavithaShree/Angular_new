@@ -1,9 +1,9 @@
 <div class="border">
     <ul>
         <li *ngFor="let carts of cartArray">
-            <div *ngIf="carts.Product">
-                <p>{{carts.Product}}</p>
-                <p>{{carts.Price | currency:"&#8377;"}}</p>
+            <div *ngIf="carts.product">
+                <p>{{carts.product}}</p>
+                <p>{{carts.price | currency:"&#8377;"}}</p>
                 <input type="button" class="fade" value="Remove from cart" (click)="removeFromCart(carts)">
             </div>
         </li>

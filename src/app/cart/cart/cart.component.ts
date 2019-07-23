@@ -11,8 +11,8 @@ import { ProductService } from '../../product/shared/product.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  private cartArray: Product[] = [];
-  private cartTotal: number;
+  cartArray: Product[] = [];
+  cartTotal: number;
 
   constructor(private cartService: CartService, private productService: ProductService) { }
 
@@ -20,16 +20,16 @@ export class CartComponent implements OnInit {
     this.cartSum();
   }
 
-  cartSum() {
+  private cartSum() {
     this.cartService.cartSubject$.subscribe(array => {
       this.cartArray = array;
       this.cartTotal = 0;
       this.cartTotal = this.cartArray.reduce((previous, current) => {
-        return previous + current.Price; }, 0);
+        return previous + current.price; }, 0);
     });
   }
 
-  removeFromCart(val) {
+  removeFromCart(val: object) {
     this.cartService.removeFromCart(val);
   }
 

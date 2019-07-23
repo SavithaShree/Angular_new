@@ -1,11 +1,11 @@
 <ul>
     <li *ngFor="let data of detailedArray">
         <div>
-            <p>{{data.Product}}</p>
-            <p>{{data.Brand}}</p>
-            <p><img style="height: 450px; width: 450px;" src={{data.Image}} alt=""></p>
-            <p>{{data.Price | currency:"&#8377;"}}</p>
-            <p>{{data.Description}}</p>
+            <p>{{data.product}}</p>
+            <p>{{data.brand}}</p>
+            <p><img style="height: 450px; width: 450px;" src={{data.image}} alt=""></p>
+            <p>{{data.price | currency:"&#8377;"}}</p>
+            <p>{{data.description}}</p>
             <p *ngIf="data.isFound">
                 <input type="button" class="fade" (click)="clickAddToCart(data)" value="Add to cart" disabled
                     style="opacity: 0.5;">
@@ -13,7 +13,7 @@
             <p *ngIf="!data.isFound">
                 <input type="button" class="fade" (click)="addToCart(data)" value="Add to cart">
             </p>
-            <input type="button" class="fade" (click)="previousPage(data.Category)" value="Back to product list">
+            <input type="button" class="fade" (click)="previousPage(data.category)" value="Back to product list">
         </div>
     </li>
 </ul>

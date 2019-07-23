@@ -12,7 +12,7 @@ import { Product } from 'src/app/product';
 })
 
 export class ProductService {
-    detailedSubject = new BehaviorSubject<any>([]);
+    private detailedSubject = new BehaviorSubject<any>([]);
     detailed$ = this.detailedSubject.asObservable();
     productList: Product[] = [];
     private jsonURL = 'assets/list.json';
@@ -20,13 +20,13 @@ export class ProductService {
     constructor(private http: HttpClient) {
     }
 
-    public getJSON(): Observable<any> {
+    getJSON(): Observable<any> {
         return this.http.get(this.jsonURL).pipe(
             catchError(this.handleError));
     }
 
     handleError() {
-        let errorMessage = 'No products are available currently!';
+        const errorMessage = 'No products are available currently!';
         window.alert(errorMessage);
         return throwError(errorMessage);
 
@@ -36,16 +36,16 @@ export class ProductService {
         return this.productList;
     }
 
-    //Fetches the data of selected item to be displayed in Detailed description page
-    detailedPage(val) {
+    routeToDescription(val: object) {
         this.detailedSubject.next(val);
     }
 
-    checkIfAdded(val1, val2) {
-        for (let outerloop of val1) {
-            for (let innerloop of val2) {
-                if (outerloop.id == innerloop.id)
+    checkIfAdded(val1: Product[], val2: Product[]) {
+        for (const outerloop of val1) {
+            for (const innerloop of val2) {
+                if (outerloop.id === innerloop.id) {
                     innerloop.isFound = true;
+                }
             }
         }
         return val2;

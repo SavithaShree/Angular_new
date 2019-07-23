@@ -10,7 +10,7 @@ import { Product } from 'src/app/product';
 
 export class CartService {
   private cartList: Product[] = [];
-  cartServiceSubject = new BehaviorSubject<any>(this.cartList);
+  private cartServiceSubject = new BehaviorSubject<Product[]>(this.cartList);
   cartSubject$ = this.cartServiceSubject.asObservable();
 
   addToCart(val) {

@@ -3,11 +3,11 @@
         <ul>
             <li *ngFor="let data of selectedCategory">
                 <div class="product-box">
-                    <p>{{data.Product}}</p>
-                    <p>{{data.Brand}}</p>
-                    <p><img style="height: 250px; width: 250px;" src={{data.Image}} alt=""></p>
-                    <p>Price: {{data.Price | currency:"&#8377;"}}</p>
-                    <p>{{data.Description}} <input type="button" class="fade" (click)="newPage(data)" value="View more">
+                    <p>{{data.product}}</p>
+                    <p>{{data.brand}}</p>
+                    <p><img style="height: 250px; width: 250px;" src={{data.image}} alt=""></p>
+                    <p>Price: {{data.price | currency:"&#8377;"}}</p>
+                    <p>{{data.description}} <input type="button" class="fade" (click)="routeToDescription(data)" value="View more">
                     </p>
                     <p *ngIf="data.isFound">
                         <input type="button" class="fade" (click)="addToCart(data)" value="Add to cart" disabled
